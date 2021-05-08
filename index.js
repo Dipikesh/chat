@@ -1,18 +1,39 @@
-var express = require('express'),
-    app = express(),
-    http = require('http'),
-    socketIO = require('socket.io'),
-    server, io;
-
-app.get('/', function (req, res) {
-res.sendFile(__dirname + '/index.html');
+const express = require('express');
+const app = express();
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+app.use("/static", express.static('./static/'));
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/static/index.html');
 });
 
-server = http.Server(app);
-server.listen(80);
+server.listen(80)
 
 
-io = socketIO(server);
+
+// var express = require('express'),
+//     app = express(),
+//     http = require('http'),
+//     socketIO = require('socket.io'),
+//     server, io;
+
+//     const PORT = 8080 ;
+// app.get('/', function (req, res) {
+// res.send('hello world');
+// // __dirname + '/index.html'
+// });
+
+// server = http.createServer(app);
+// server.listen(PORT);
+
+// // app.listen(PORT,()=>{
+// //     console.log(PORT)
+// // })
+
+
+// io = socketIO(server);
 // console("i am in")
 const users = {};
 

@@ -1,23 +1,36 @@
-var express = require('express'),
-    app = express(),
-    http = require('http'),
-    socketIO = require('socket.io'),
-    server, io;
+var app = require('express')();
 
+    // app = express(),
+   var http = require('http').createServer(app)
+    var server, io;
+socketIO = require('socket.io');
+
+     const port = process.env.port;
 app.get('/', function (req, res) {
-res.sendFile(__dirname + '/index.html');
+res.sendfile(__dirname + '/index.html');
 });
+http.listen(port,function(){
+  console.log('listening on' + port);
+})
+ 
 
-server = http.Server(app);
-server.listen(80);
+// // '
+// app.listen(port,() =>{
+//   console.log(`server is running on ${port}`);
+// })
+// });
 
-io = socketIO(server);
+// server = http.Server(app);
+// const port = process.env.port || 5000;
+// server.listen(port);
 
-io.on('connection', function (socket) {
-  socket.emit('greeting-from-server', {
-      greeting: 'Hello Client'
-  });
-  socket.on('greeting-from-client', function (message) {
-    console.log(message);
-  });
-});
+// io = socketIO(server);
+
+// io.on('connection', function (socket) {
+//   socket.emit('greeting-from-server', {
+//       greeting: 'Hello Client'
+//   });
+//   socket.on('greeting-from-client', function (message) {
+//     console.log(message);
+//   });
+// });
