@@ -5,14 +5,26 @@ const messageContainer = document.querySelector(".container")
 const fallback = document.querySelector(".fallback")
 var timeout=undefined;
 var user;
+var check = true;
 
 const append = (message,position) =>{
+  
         const messageElement = document.createElement('div');
+        // var elems = document.getElementById('message');
+        
          messageElement.innerText = message;
          messageElement.classList.add('message');
          messageElement.classList.add(position)
+        
+        //  mesaageElement.classList.add(mesaageInput.scrollHeight);
+
          messageContainer.append(messageElement)
+
+        //  var element = document.getElementById('#data');
+        //  element.scrollTop = element.scrollHeight;
+
 }
+
 
 
 function typingTimeout(){
@@ -26,6 +38,11 @@ const message = mesaageInput.value;
 append(`You : ${message}`,'right')
 socket.emit('send',message);
 mesaageInput.value ='';
+var elem = document.getElementById('data');
+elem.scrollTop = elem.scrollHeight;
+// messageElement.classList.add(elem.scrollTop)
+
+
 })
 
 const name = prompt("Enter your name to join");
@@ -38,6 +55,10 @@ socket.on('user-joined',name =>{
 
 socket.on('receive',data =>{
     append(`${data.name} : ${data.message}`,'left')
+    var elems = document.getElementById('data');
+    elems.scrollTop = elems.scrollHeight;
+    // messageElement.classList.add(elems.scrollTop)
+    
 })
 
 socket.on('left',name =>{
