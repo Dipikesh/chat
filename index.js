@@ -9,7 +9,9 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/static/index.html');
 });
 
-server.listen(80)
+var port = process.env.PORT || 8000;
+
+server.listen(port);
 
 
 
