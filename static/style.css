@@ -1,5 +1,5 @@
 body{
-    background-image: linear-gradient(rgb(65,100,221),purple);
+    background-image: linear-gradient(rgb(65,100,221),#b44bb4);
 }
 
 .container{
@@ -13,16 +13,19 @@ body{
   
  
 }
+#typing{
+    position: absolute;
+    left:8%;
+}
 
 .message{
    
-    background-color: grey;
-    width: 24%;
-    padding: 10px;
-    margin: 17px 12px;
-    border: 2px solid black;
-    border-radius: 10px;
-  
+    background-color: #bcc7e5;
+    width: 60%;
+    padding: 6px;
+    margin: 13px 9px;
+    border: 2px solid blueviolet;
+    border-radius: 20px;
     
 }
 
@@ -47,7 +50,7 @@ body{
 }
 
 #messageInp{
-    width: 92%;
+    width: 75%;
     border: 2px solid black;
     border-radius: 6px;
     height: 34px;

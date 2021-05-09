@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatApp</title>
     
-    <script defer src = "socket.io/socket.io.js">
+    <script defer src = "/socket.io/socket.io.js">
     
     </script>
-    <script defer src="../static/client.js"></script>
+    <script defer src="./static/client.js"></script>
     <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-    <link rel = "stylesheet" href = "../static/style.css">
+    <link rel = "stylesheet" href = "./static/style.css">
 </head>
 <body>
     <div class="container" id = "data">
@@ -22,6 +22,7 @@
 
 
     </div>
+    
 <div class="send">
     <form action = "#" id = "send-container">
         
@@ -29,8 +30,10 @@
     
         <button class="btn" type="submit" >Send</button>
     </form>
+    <div class="fallback" id = "typing"></div>
 </div>
-<div class="fallback"></div>
+
+
 <script>
   
 

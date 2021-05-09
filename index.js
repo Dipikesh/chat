@@ -1,15 +1,18 @@
 const express = require('express');
 const app = express();
+
 const http = require('http');
+
 const server = http.createServer(app);
-const { Server } = require("socket.io");
+const  {Server}  = require("socket.io");
+
 const io = new Server(server);
 app.use("/static", express.static('./static/'));
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/static/index.html');
 });
 
-var port = process.env.PORT || 8000;
+var port = process.env.port || 8000;
 
 server.listen(port);
 
