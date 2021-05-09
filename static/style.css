@@ -21,7 +21,7 @@ body{
 .message{
    
     background-color: #bcc7e5;
-    width: 60%;
+    display: inline-block;
     padding: 6px;
     margin: 13px 9px;
     border: 2px solid blueviolet;
