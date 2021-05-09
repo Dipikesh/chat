@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/static/index.html');
 });
 
-var port = process.env.port || 8000;
+var port = process.env.PORT || 8000;
 
 server.listen(port);
 
